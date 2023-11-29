@@ -1075,7 +1075,7 @@ project(':core') {
                                ':connect:runtime:genConnectPredicateDocs',
                                ':connect:runtime:genSinkConnectorConfigDocs', ':connect:runtime:genSourceConnectorConfigDocs',
                                ':streams:genStreamsConfigDocs', 'genConsumerMetricsDocs', 'genProducerMetricsDocs',
-                               ':connect:runtime:genConnectMetricsDocs', ':connect:runtime:genConnectOpenAPIDocs',
+                               ':connect:runtime:genConnectMetricsDocs',
                                ':connect:mirror:genMirrorSourceConfigDocs', ':connect:mirror:genMirrorCheckpointConfigDocs',
                                ':connect:mirror:genMirrorHeartbeatConfigDocs', ':connect:mirror:genMirrorConnectorConfigDocs',
                                ':storage:genRemoteLogManagerConfigDoc', ':storage:genRemoteLogMetadataManagerConfigDoc'], type: Tar) {
