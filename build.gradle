@@ -210,6 +210,7 @@ if (repo != null) {
         'clients/src/test/resources/serializedData/*',
         'docker/resources/ub/go.sum',
         'docker/test/fixtures/secrets/*'
+        'docker/examples/fixtures/secrets/*'
     ])
   }
 } else {
