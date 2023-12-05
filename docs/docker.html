@@ -29,16 +29,14 @@
 
     <h4 class="anchor-heading">Passing configs to kafka in docker container</h4>
     <p>
-        Docker image comes with default configs for KRaft mode and can be used out of the box as mentioned in <a href="../quickstart">quickstart</a>.
-        If default configs need to be overriden, it can be achieved by providing configs to the docker container.
+        When no user provided input is provided, default configs will be used to start the kafka server, as mentioned in <a href="../quickstart">quickstart</a>.
         Configs can be provided to kafka running inside the container either by environment variables or by providing property files through file input.
-        Property files provided through file input will replace default property files.
-        Configs provided through environment variables will have the highest priority.
+        Property files provided through file input will replace default property files. Configs provided through environment variables will have the highest priority.
     </p>
 
     <h5>File input</h5>
     <ul>
-        <li>This method requires users to get path to a local folder containing kafka property files and mount it to docker container using docker volume.</li>
+        <li>This method requires users to provide path to a local folder which contains kafka property files and mount it to docker container using docker volume.</li>
         <li>It replaces the default config file present in docker container.</li>
         <li>Mount the folder containing kafka property files to <code class="language-bash">/mnt/shared/config</code> in docker container.</li>
         <li>Command <code class="language-bash">docker run --volume path/to/property/folder:/mnt/shared/config -p 9092:9092 apache/kafka:{{fullDotVersion}}</code> can be used to mount the folder containing property files.</li>
@@ -47,7 +45,8 @@
 
     <h5>Using Environment Variables</h5>
     <ul>
-        <li>Kafka property defined via env variables will override the value of that property defined in file input and default config</li>
+        <li>Kafka property defined via env variables will override the value of that property defined in file input and default config.</li>
+        <li>If properties are provided via environment variables only, default configs will be replaced by user provided properties.</li>
         <li>To construct the environment key variable name for server.properties configs, following steps can be followed:-</li>
         <ul>
             <li>Replace . with _</li>
@@ -73,7 +72,6 @@
         </ul>
         <li>Environment variables commonly used in Kafka can be provided via environment variables as well, for example <code class="language-bash">CLUSTER_ID</code></li>
         <li>Command <code class="language-bash">docker run --env CONFIG_NAME=CONFIG_VALUE -p 9092:9092 apache/kafka:{{fullDotVersion}}</code> can be used to provide environment variables to docker container</li>
-        <li>One thing to note is that, when using environment variables to provide configs, default value will be used for the configs that are not getting overriden by the environment variable</li>
     </ul>
 
     <h4>Running in SSL mode</h4>
